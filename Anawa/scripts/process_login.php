@@ -29,9 +29,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar la contraseña
         if (password_verify($password, $user['contraseña'])) {
+            // Iniciar sesión del usuario
             $_SESSION['user_id'] = $user['idusu'];
             $_SESSION['username'] = $user['nomusu'];
-            header("Location: ../pages/home.php");
+            $_SESSION['idver'] = $user['idver'];  // Guardar el idver en la sesión
+
+            // Redirigir según el rol del usuario (idver)
+            switch ($user['idver']) {
+                case 1:
+                    // Redirigir a la interfaz de Administrador
+                    header("Location: ../pages/admin_dashboard.php");
+                    break;
+                case 2:
+                    // Redirigir a la interfaz de Artesano
+                    header("Location: ../pages/artesano_dashboard.php");
+                    break;
+                case 3:
+                    // Redirigir a la interfaz de Comprador*******************************************
+                    header("Location: ../index.php");
+                    break;
+                case 4:
+                    // Redirigir a la interfaz de Delivery
+                    header("Location: ../pages/delivery_dashboard.php");
+                    break;
+                default:
+                    // Si el rol no está identificado, redirigir al login o mostrar un error
+                    echo "Rol de usuario no identificado.";
+                    break;
+            }
             exit;
         } else {
             echo "Contraseña incorrecta.";

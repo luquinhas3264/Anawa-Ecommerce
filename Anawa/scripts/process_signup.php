@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Las contraseñas no coinciden.";
         exit;
     }
+    
     // Validar reCAPTCHA
     $secret_key = '6LcQoTkqAAAAAB94rps__Ynj9kAeAMdMQznqG_JS';
     $recaptcha_response = $_POST['g-recaptcha-response'];
@@ -73,10 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hashear la contraseña
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insertar el nuevo usuario en la base de datos con el token de verificación
-    $sql = "INSERT INTO Usuario (ci, nomusu, celular, email, contraseña, token_verificacion, verificado) VALUES (?, ?, ?, ?, ?, ?, 0)";
+    // Asignar idver = 3 para el rol de Comprador
+    $idver = 3;
+
+    // Insertar el nuevo usuario en la base de datos con el token de verificación y el idver
+    $sql = "INSERT INTO Usuario (ci, nomusu, celular, email, contraseña, token_verificacion, verificado, idver) 
+            VALUES (?, ?, ?, ?, ?, ?, 0, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $ci, $nomusu, $celular, $email, $hashed_password, $token);
+    $stmt->bind_param("ssssssi", $ci, $nomusu, $celular, $email, $hashed_password, $token, $idver);
 
     if ($stmt->execute()) {
         // Enviar correo de verificación usando PHPMailer
@@ -88,11 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'anawa.ecommerce@gmail.com'; // Tu correo de Gmail
-            $mail->Password   = 'h b f p f q x k r p y k z q c c';             // Tu contraseña de Gmail
+            $mail->Password   = 'h b f p f q x k r p y k z q c c'; // Tu contraseña de Gmail
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            // Destinatario            
+            // Destinatario
             $mail->setFrom('anawa.ecommerce@gmail.com', 'Anawa Ecommerce');
             $mail->addAddress($email);
 

@@ -1,3 +1,6 @@
+<?php
+session_start(); // Iniciar sesión para acceder a las variables de sesión
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +9,7 @@
     <title>Mi E-Commerce</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/Anawa/assets/css/styles2.css">
+    <link rel="stylesheet" href="/Anawa/assets/css/index_styles.css">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -14,14 +17,27 @@
         <nav class="navbar">
             <div class="logo">
                 <a href="#"><img src="/Anawa/assets/images/LogoAnawa2.png" alt="Logo"></a>
-            </div>
-            <ul class="nav-links">
+                <ul class="nav-links">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Servicio al Cliente</a></li>
                 <li><a href="#">Carrito</a></li>
-                <li><a href="#">Pedidos</a></li>                
+                <li><a href="#">Pedidos</a></li>
+                <li><a href="/Anawa/pages/vender.php">Vender</a></li> 
+                <li><a href="/Anawa/pages/trabaja_con_nosotros.php">Trabaja con Nosotros</a></li> 
             </ul>
-            <a href="/Anawa/pages/login.php" class="login-btn">Iniciar sesión</a>
+            </div>
+            <div class="user-section">
+                <?php if (isset($_SESSION['username'])): ?>
+                    <!-- Mostrar mensaje de bienvenida si el usuario ha iniciado sesión -->
+                    <div class="welcome-msg">
+                        Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?> 
+                        <a href="/Anawa/pages/logout.php" class="logout-btn">Cerrar sesión</a>
+                    </div>
+                <?php else: ?>
+                    <!-- Mostrar los botones de login y registro si el usuario no ha iniciado sesión -->
+                    <a href="/Anawa/pages/login.php" class="login-btn">Iniciar sesión</a>
+                <?php endif; ?>
+            </div>
         </nav>
     </header>
 
