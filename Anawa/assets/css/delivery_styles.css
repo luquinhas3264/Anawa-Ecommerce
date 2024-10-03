@@ -44,7 +44,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
+    width: 60%;
+    margin-top: 15px; /* Para dar espacio entre los botones */
 }
 
 .form-container button:hover {

@@ -20,8 +20,7 @@ session_start(); // Iniciar sesión para acceder a las variables de sesión
                 <ul class="nav-links">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Servicio al Cliente</a></li>
-                <li><a href="#">Carrito</a></li>
-                <li><a href="#">Pedidos</a></li>
+                <li><a href="/Anawa/pages/productos.php">Productos</a></li>                
                 <li><a href="/Anawa/pages/vender.php">Vender</a></li> 
                 <li><a href="/Anawa/pages/trabaja_con_nosotros.php">Trabaja con Nosotros</a></li> 
             </ul>

@@ -61,13 +61,15 @@ $result = $conn->query($sql);
                             </td>
                             <td><?php echo htmlspecialchars($row['fecha_solicitud']); ?></td>
                             <td>
-                                <form action="../scripts/process_admin_solicitud.php" method="POST">
-                                    <input type="hidden" name="idsolicitud" value="<?php echo $row['idsolicitud']; ?>">
-                                    <input type="hidden" name="idusu" value="<?php echo $row['idusu']; ?>">
-                                    <input type="hidden" name="tipo_solicitud" value="<?php echo $row['tipo_solicitud']; ?>">
-                                    <button type="submit" name="accion" value="aprobar" class="approve-btn">Aprobar</button>
-                                    <button type="submit" name="accion" value="rechazar" class="reject-btn">Rechazar</button>
-                                </form>
+                            <form action="../scripts/process_admin_solicitud.php" method="POST">
+                                <input type="hidden" name="idsolicitud" value="<?php echo $row['idsolicitud']; ?>">
+                                <input type="hidden" name="idusu" value="<?php echo $row['idusu']; ?>">
+                                <input type="hidden" name="tipo_solicitud" value="<?php echo $row['tipo_solicitud']; ?>">
+                                <input type="hidden" name="idcom" value="<?php echo $row['idcom']; ?>">
+                                <input type="hidden" name="turno" value="<?php echo $row['turno']; ?>">
+                                <input type="submit" name="accion" value="aprobar">
+                                <input type="submit" name="accion" value="rechazar">
+                            </form>
                             </td>
                         </tr>
                     <?php endwhile; ?>

@@ -7,6 +7,14 @@ if (!isset($_SESSION['user_id'])) {
     echo "Debes iniciar sesión para acceder a esta página.";
     exit;
 }
+
+// Mostrar el mensaje de rechazo si existe
+if (isset($_SESSION['mensaje_rechazo'])) {
+    $mensaje_rechazo = $_SESSION['mensaje_rechazo'];
+    unset($_SESSION['mensaje_rechazo']); // Eliminar el mensaje de la sesión después de mostrarlo
+} else {
+    $mensaje_rechazo = '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +31,12 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Formulario para mandar solicitud como Artesano -->
     <section class="form-container">
         <h2>Mandar solicitud como Artesano</h2>
+        
+        <!-- Mostrar el mensaje de rechazo si existe -->
+        <?php if ($mensaje_rechazo != ''): ?>
+            <p style="color: red;"><?php echo $mensaje_rechazo; ?></p>
+        <?php endif; ?>
+
         <form action="../scripts/process_artesano_solicitud.php" method="POST">
             <label for="comunidad">Selecciona tu Comunidad:</label>
             <select name="idcom" id="comunidad" required>
@@ -36,8 +50,12 @@ if (!isset($_SESSION['user_id'])) {
                 }
                 ?>
             </select>
-            <button type="submit">Mandar Solicitud</button>
+            <button type="submit" class="form-btn">Mandar Solicitud</button>
+
+            <!-- Botón para volver al index -->
+            <button type="button" class="form-btn" onclick="window.location.href='../index.php'">Volver</button>
         </form>
+        
 
         <!-- Mensaje de estado de la solicitud -->
         <div id="solicitud-status" style="margin-top: 20px;"></div>

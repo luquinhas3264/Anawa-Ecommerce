@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8f0;
+}
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo a {
+    margin-right: 20px; /* Espacio entre el logo y los enlaces */
+}
+
+.logo img {
+    width: 120px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; /* Espaciado entre cada enlace */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #392F5A;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FF8811; /* Cambia el color al pasar el cursor */
+    border-bottom: 2px solid #FF8811; /* Añade una línea debajo del enlace */
+}
+
+.logout-btn {
+    background-color: #FF8811; /* Color del botón (rojo suave) */
+    color: #fff; /* Color del texto en el botón */
+    padding: 12px 15px; /* Espaciado interno del botón */
+    border: none;
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 1rem;
+    font-weight: 400;    
+    text-decoration: none; /* Quitar el subrayado del enlace */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover en el botón */
+.logout-btn:hover {
+    background-color: #9dd9d2; /* Color del botón al pasar el cursor (rojo más oscuro) */
+    cursor: pointer;
+}
+
+
+/* Sección del dashboard */
+.dashboard {
+    padding: 40px;
+}
+
+.dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 30px;    
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 2rem; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+      
+}
+
+/* Estilo para el formulario de subir productos */
+.product-actions {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 30px;
+}
+
+.product-actions h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.product-actions label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.product-actions input[type="text"],
+.product-actions input[type="number"],
+.product-actions textarea,
+.product-actions select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.product-actions input[type="text"]:focus,
+.product-actions input[type="number"]:focus,
+.product-actions textarea:focus,
+.product-actions select:focus {
+    border-color: #FF8811; /* Borde naranja al enfocar */
+    outline: none; /* Quitar borde azul */
+}
+
+.product-actions textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.product-actions input[type="file"] {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.form-btn {
+    background-color: #FF8811;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;    
+}
+
+.form-btn:hover {
+    background-color: #E76B00; /* Más oscuro en hover */
+}
+
+.form-btn:active {
+    transform: scale(0.98); /* Leve efecto de pulsado */
+}
+
+
+/* Estilo para la lista de productos */
+.product-list {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-list h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-list th {
+    background-color: #FF8811; /* Fondo del encabezado */
+    color: #fff; /* Texto blanco para los encabezados */
+    font-weight: 600;
+}
+
+.product-list tbody tr:hover {
+    background-color: #f9f9f9; /* Fondo suave al pasar el cursor */
+}
+
+.product-list a {
+    color: #FF8811;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.product-list a:hover {
+    color: #E76B00; /* Color más oscuro en hover */
+}
+
+.product-list a:active {
+    transform: scale(0.98); /* Leve efecto de pulsado */
+}
+
+/* Botones de acción (Editar/Eliminar) */
+.product-list a.edit-btn, .product-list a.delete-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.product-list a.edit-btn {
+    background-color: #4CAF50; /* Verde para editar */
+    color: #fff;
+}
+
+.product-list a.delete-btn {
+    background-color: #F44336; /* Rojo para eliminar */
+    color: #fff;
+}
+
+.product-list a.edit-btn:hover {
+    background-color: #45A049; /* Más oscuro al hover */
+}
+
+.product-list a.delete-btn:hover {
+    background-color: #D32F2F; /* Más oscuro al hover */
+}

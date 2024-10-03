@@ -97,6 +97,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
             // Destinatario
             $mail->setFrom('anawa.ecommerce@gmail.com', 'Anawa Ecommerce');
             $mail->addAddress($email);

@@ -54,12 +54,14 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
+    width: 60%;
+    margin-top: 15px; /* Para dar espacio entre los botones */
 }
 
 .form-container button:hover {
     background-color: #392f5a;
 }
+
 
 @media (max-width: 600px) {
     .form-container {
