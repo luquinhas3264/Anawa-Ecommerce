@@ -1,0 +1,71 @@
+/* Estilos generales del contenedor */
+.delivery-container {
+    width: 80%;
+    margin: 50px auto;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Títulos */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #333;
+}
+
+/* Tabla de pedidos */
+.delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-table th, .delivery-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.delivery-table th {
+    background-color: #ff8811;
+    color: white;
+}
+
+.delivery-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botones de acción */
+.btn-aceptar {
+    background-color: #ff8811;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-aceptar:hover {
+    background-color: #cf6e0c;
+}
+
+
+/* Texto cuando no hay pedidos */
+p {
+    font-size: 18px;
+    text-align: center;
+    color: #777;
+}
+
+
